@@ -19,17 +19,6 @@ By measuring the “coastline length” of the Mandelbrot set’s upper boundary
 
 ---
 
-###  **Results**
-
-* Approx. **1500 valid boundary points**
-* Polynomial order: **15**
-* Computed arc length: **L ≈ 3.08**
-* The plot below shows the discrete boundary points (blue) and polynomial fit (red).
-
-![Mandelbrot Boundary Fit](Mandelbrot_Figure.png)
-
----
-
 ###  **Discussion Summary**
 
 The estimated boundary length increases with resolution, confirming the fractal nature of the Mandelbrot set.  
@@ -38,12 +27,5 @@ The smoother polynomial fit approximates the fractal boundary while reducing num
 
 ---
 
-###  **How to Run**
-
-1. Open MATLAB and place all `.m` files in the same directory.  
-2. Run the main script:
-
-   ```matlab
-   >> run('Proj2_main.m')
 
 
