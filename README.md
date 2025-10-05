@@ -2,34 +2,48 @@
 
 ---
 
-## Overview
+###  **Overview**
 
-This repository contains MATLAB code for estimating the *coastline length* of the Mandelbrot set, inspired by Mandelbrot’s question:  
-**“How long is the coast of Britain?”**
+This project explores the *coastline paradox* through numerical approximation of the **Mandelbrot set boundary**.  
+By measuring the “coastline length” of the Mandelbrot set’s upper boundary at different resolutions, we illustrate how the measured length depends on the scale of observation — a direct analogy to Benoit Mandelbrot’s question, *“How long is the coast of Britain?”*
 
-The program computes the upper boundary of the Mandelbrot set using numerical methods, then approximates its length through polynomial fitting and integration.  
-The workflow consists of four main components:
-
-**1. Fractal Test (`fractal.m`):**  
-Determines whether a complex point \( c = x + iy \) belongs to the Mandelbrot set by iterating  
-\( z_{k+1} = z_k^2 + c \).  
-Points diverging (‖z‖ > 2) are classified as outside the set.
-
-**2. Boundary Detection (`indicator_fn_at_x.m` + `bisection.m`):**  
-For each fixed x, the function evaluates vertical points \( y \in [0, 1.6] \).  
-The bisection algorithm identifies where the sign changes, locating boundary points.
-
-**3. Polynomial Fitting (`polyfit`):**  
-Boundary points \((x_i, y_i)\) are fitted using a 15th-order polynomial.  
-This smooths the discrete data and produces a differentiable curve.
-
-**4. Arc Length Computation (`poly_len.m`):**  
-The fitted polynomial \( y = f(x) \) is integrated numerically:
-\[
-L = \int_a^b \sqrt{1 + (f'(x))^2}\, dx
-\]
-to estimate the boundary’s “coastline length”.
 
 ---
+
+###  **Key Methods**
+
+* **Fractal generation:** Iterative formula \( z_{k+1} = z_k^2 + c \)
+* **Boundary detection:** 1D indicator function + **bisection root-finding**
+* **Polynomial fitting:** 15th-order least-squares fit using `polyfit()`
+* **Arc length computation:** Numerical integration of \( L = \int \sqrt{1+(f'(x))^2}\,dx \)
+
+---
+
+###  **Results**
+
+* Approx. **1500 valid boundary points**
+* Polynomial order: **15**
+* Computed arc length: **L ≈ 3.08**
+* The plot below shows the discrete boundary points (blue) and polynomial fit (red).
+
+![Mandelbrot Boundary Fit](Mandelbrot_Figure.png)
+
+---
+
+###  **Discussion Summary**
+
+The estimated boundary length increases with resolution, confirming the fractal nature of the Mandelbrot set.  
+This numerical experiment demonstrates how measurement scale affects apparent “length,” mirroring the *coastline paradox*.  
+The smoother polynomial fit approximates the fractal boundary while reducing numerical noise, producing a finite, scale-dependent “coastline” value.
+
+---
+
+###  **How to Run**
+
+1. Open MATLAB and place all `.m` files in the same directory.  
+2. Run the main script:
+
+   ```matlab
+   >> run('Proj2_main.m')
 
 
