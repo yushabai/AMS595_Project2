@@ -15,7 +15,7 @@ By measuring the “coastline length” of the Mandelbrot set’s upper boundary
 * **Fractal generation:** Iterative formula  $z_{k+1} = z_k^2 + c$
 * **Boundary detection:** 1D indicator function + **bisection root-finding**
 * **Polynomial fitting:** 15th-order least-squares fit using `polyfit()`
-* **Arc length computation:** Numerical integration of $L=\int_a^b \sqrt{1+\big(f'(x)\big)^2}\,dx$
+* **Arc length computation:** Numerical integration of $L=\int_a^b \sqrt{1+(f'(x))^2}\,dx$
 
 ---
 
